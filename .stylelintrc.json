@@ -1,0 +1,25 @@
+{
+  "ignoreFiles": ["**/*"],
+  "overrides": [
+    {
+      "files": ["**/*.css"],
+      "extends": [],
+      "rules": {}
+    },
+    {
+      "files": ["**/*.scss"],
+      "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-idiomatic-order"
+      ],
+      "rules": {
+        "order/properties-alphabetical-order": null,
+        "selector-class-pattern": "^([a-z][a-z0-9]*)(-_[a-z0-9]+)*$",
+        "string-quotes": "single",
+        "color-hex-case": "lower",
+        "no-empty-source": null
+      }
+    }
+  ],
+  "rules": {}
+}

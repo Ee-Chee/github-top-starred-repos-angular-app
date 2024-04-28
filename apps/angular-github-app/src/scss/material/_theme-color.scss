@@ -1,0 +1,122 @@
+@use '@angular/material' as mat;
+
+// @include mat.core;
+// only needed one in a project, avoid importing here
+// as it decreases performance (see styles.css chunk files and raw size)
+
+// http://mcg.mbitson.com/#!?mcgpalette0=%23191649&mcgpalette1=%23464916
+
+$primary: (
+  50: #e0f3ff,
+  100: #b3e0ff,
+  200: #80ccff,
+  300: #4db8ff,
+  400: #26a8ff,
+  500: #09f,
+  600: #0091ff,
+  700: #0086ff,
+  800: #007cff,
+  900: #006bff,
+  A100: #fff,
+  A200: #f2f7ff,
+  A400: #bfd6ff,
+  A700: #a6c6ff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+$secondary: (
+  50: #e0f5e0,
+  100: #b3e7b3,
+  200: #80d780,
+  300: #4dc64d,
+  400: #26ba26,
+  500: #00ae00,
+  600: #00a700,
+  700: #009d00,
+  800: #009400,
+  900: #008400,
+  A100: #b1ffb1,
+  A200: #7eff7e,
+  A400: #4bff4b,
+  A700: #31ff31,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+$error: (
+  50: #ffe0e0,
+  100: #ffb3b3,
+  200: #ff8080,
+  300: #ff4d4d,
+  400: #ff2626,
+  500: #f00,
+  600: #f00,
+  700: #f00,
+  800: #f00,
+  900: #f00,
+  A100: #fff,
+  A200: #fff2f2,
+  A400: #ffbfbf,
+  A700: #ffa6a6,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+$my-primary: mat.define-palette($primary);
+$my-accent: mat.define-palette($secondary, A200, A100, A400);
+$my-warn: mat.define-palette($error);
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+  )
+);
+
+// https://angular-material.dev/courses/m2-ng-components/m2-ng-components/create-custom-theme
+// @include mat.all-component-themes($my-theme);
+// For better performance use following =>
+// @include mat.core-theme($my-theme);
+@include mat.button-theme($my-theme);

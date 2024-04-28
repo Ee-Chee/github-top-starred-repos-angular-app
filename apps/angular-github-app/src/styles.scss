@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+// abstracts
+@import 'scss/abstracts/variables', 'scss/abstracts/mixins';
+
+// base
+@import 'scss/base/base', 'scss/base/fonts', 'scss/base/typography';
+
+// material
+@import 'scss/material/components', 'scss/material/theme-color';
