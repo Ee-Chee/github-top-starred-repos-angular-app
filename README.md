@@ -4,6 +4,9 @@
 - Husky and Lint-staged => run prettier code formatting before committing
 - Angular material
 - Global error handling (client and api)
+- Ngrx
+- Route guard
+- Graphql
 
 ## Pre-settings
 - Configure stylelint in settings to enable auto-detection

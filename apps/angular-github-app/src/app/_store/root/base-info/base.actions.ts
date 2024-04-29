@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { ResponseError } from '@angular-leanix/common';
 
 export const validateToken = createAction(
   '[Base/API] Validate token',
@@ -12,5 +13,5 @@ export const validationSuccess = createAction(
 
 export const validationFailure = createAction(
   '[Base/API] Validation Failure',
-  props<{ error: string }>()
+  props<{ error: ResponseError }>()
 );

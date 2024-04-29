@@ -1,1 +1,44 @@
-<p>home works!</p>
+<h1>Github Issue Explorer</h1>
+
+<p class="home-text">
+  Enter your API token to start browsing Github issues of public repositories:
+</p>
+
+<form [formGroup]="form">
+  <label class="home-text"> Your API Token: </label>
+
+  <mat-form-field>
+    <input matInput [formControl]="form.controls.token" />
+    @if (form.controls.token.hasError('required')) {
+    <mat-error>Required</mat-error>
+    }
+  </mat-form-field>
+
+  @if (respErr$ | async) {
+  <div class="resp-error">
+    The provided token is invalid. Please follow the instructions in the
+    following link to generate a new token:
+    <br />
+    <a
+      href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
+      target="_blank"
+      aria-label="link to generate new Github token">
+      Link to Github Documentation
+    </a>
+  </div>
+  }
+
+  <button
+    type="submit"
+    mat-raised-button
+    color="primary"
+    aria-label="submit token"
+    (click)="onSubmit()"
+    [disabled]="form.invalid">
+    Start Browsing
+  </button>
+</form>
+
+<p class="info">
+  It is only stored on your machine as long as you are on this page.
+</p>
