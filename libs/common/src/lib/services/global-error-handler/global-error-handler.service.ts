@@ -5,7 +5,7 @@ import { ErrorMessageSnackbarComponent } from '../../error-message-snackbar/erro
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  snack = inject(MatSnackBar);
+  private snack = inject(MatSnackBar);
 
   handleError(error: Error | HttpErrorResponse) {
     if (error instanceof HttpErrorResponse && error.status === 401) {

@@ -23,9 +23,9 @@ export class ErrorMessageSnackbarComponent {
   toggleErrDetails = false;
   errorMessage = 'unknown';
 
-  data = inject<HttpErrorResponse | Error>(MAT_SNACK_BAR_DATA);
-  snackBarRef = inject(MatSnackBarRef<ErrorMessageSnackbarComponent>);
-  cdr = inject(ChangeDetectorRef);
+  private data = inject<HttpErrorResponse | Error>(MAT_SNACK_BAR_DATA);
+  private snackBarRef = inject(MatSnackBarRef<ErrorMessageSnackbarComponent>);
+  private cdr = inject(ChangeDetectorRef);
 
   constructor() {
     this.errorMessage = this.data.toString();
