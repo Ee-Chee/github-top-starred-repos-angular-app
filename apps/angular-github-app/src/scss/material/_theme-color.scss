@@ -120,3 +120,4 @@ $my-theme: mat.define-light-theme(
 // For better performance use following =>
 // @include mat.core-theme($my-theme);
 @include mat.button-theme($my-theme);
+@include mat.snack-bar-theme($my-theme);

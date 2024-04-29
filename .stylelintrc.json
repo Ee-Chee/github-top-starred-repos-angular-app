@@ -14,7 +14,6 @@
       ],
       "rules": {
         "order/properties-alphabetical-order": null,
-        "selector-class-pattern": "^([a-z][a-z0-9]*)(-_[a-z0-9]+)*$",
         "string-quotes": "single",
         "color-hex-case": "lower",
         "no-empty-source": null

@@ -22,7 +22,8 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/angular-github-app/src/favicon.ico",
-          "apps/angular-github-app/src/assets"
+          "apps/angular-github-app/src/assets",
+          "apps/angular-github-app/src/manifest.webmanifest"
         ],
         "styles": [
           "apps/angular-github-app/src/styles.scss"
@@ -43,7 +44,8 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "serviceWorker": "apps/angular-github-app/ngsw-config.json"
         },
         "development": {
           "optimization": false,

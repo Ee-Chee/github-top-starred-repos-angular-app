@@ -1,3 +1,11 @@
-html {
-  box-sizing: border-box;
+@import '../abstracts/variables';
+
+// snackbar
+.snackbar-err-toggle {
+  color: $aga-error;
+  cursor: pointer;
+}
+
+.snackbar-err-message {
+  color: $aga-color-secondary;
 }

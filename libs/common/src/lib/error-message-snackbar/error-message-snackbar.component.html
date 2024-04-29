@@ -1,0 +1,24 @@
+<div class="error-container">
+  <div>
+    Error:
+    <span class="snackbar-err-toggle" (click)="toggle()"
+      >Click here for details!</span
+    >
+  </div>
+
+  @if(toggleErrDetails){
+  <div class="snackbar-err-message">
+    {{ errorMessage }}
+  </div>
+  }
+
+  <div class="buttons">
+    <button
+      mat-raised-button
+      aria-label="cancel"
+      color="primary"
+      (click)="close()">
+      Cancel
+    </button>
+  </div>
+</div>
