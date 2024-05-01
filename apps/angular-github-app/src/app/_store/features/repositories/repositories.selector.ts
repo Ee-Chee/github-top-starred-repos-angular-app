@@ -10,12 +10,37 @@ export const selectRepositoriesLoading = createSelector(
   (state: RepositoriesState) => state.loading
 );
 
-export const selectRepositoriesMap = createSelector(
+export const selectRepositoriesError = createSelector(
+  selectRepositoriesState,
+  (state: RepositoriesState) => state.error
+);
+
+/////////////////////////
+
+export const selectReposMap = createSelector(
   selectRepositoriesState,
   (state: RepositoriesState) => state.paginatedReposMap
 );
 
-export const selectRepositoriesError = createSelector(
+export const selectReposCurrentPage = createSelector(
   selectRepositoriesState,
-  (state: RepositoriesState) => state.error
+  (state: RepositoriesState) => state.currentPage
+);
+
+export const selectReposAfter = createSelector(
+  selectRepositoriesState,
+  (state: RepositoriesState) => state.after
+);
+
+export const selectRepositoriesData = createSelector(
+  selectReposMap,
+  selectReposCurrentPage,
+  selectReposAfter,
+  (reposMap, currentPage, after) => {
+    return {
+      reposMap: reposMap,
+      currentPage: currentPage,
+      after: after,
+    };
+  }
 );

@@ -5,6 +5,10 @@ export interface Search<T> {
   };
 }
 
+export interface Repository<T> {
+  repository: T;
+}
+
 export interface PageInfo {
   endCursor: string;
   hasNextPage: boolean;

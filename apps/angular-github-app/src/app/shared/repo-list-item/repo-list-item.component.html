@@ -1,7 +1,10 @@
-<div class="repo-item-card">
+<!--[queryParams]="{repo:JSON.stringify(repo())}-->
+<a
+  class="repo-item-card"
+  [routerLink]="'/repositories/' + repo().owner.login + '/' + repo().name">
   <div>Name: {{ repo().name }}</div>
   <div>Owner: {{ repo().owner.login }}</div>
   <div>Language: {{ repo().primaryLanguage?.name ?? '-' }}</div>
   <div>Open Issues: {{ repo().issues.totalCount }}</div>
   <div class="stars">Stars: {{ repo().stargazerCount }}</div>
-</div>
+</a>

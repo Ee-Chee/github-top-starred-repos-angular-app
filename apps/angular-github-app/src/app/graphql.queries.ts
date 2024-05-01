@@ -15,7 +15,6 @@ const GET_PAGINATED_REPOSITORIES = gql`
         ... on Repository {
           id
           name
-          description
           stargazerCount
           owner {
             login
@@ -41,18 +40,13 @@ const GET_REPO_ISSUES = gql`
     repository(owner: $owner, name: $name) {
       id
       name
+      stargazerCount
       owner {
         login
       }
-      stargazerCount
       primaryLanguage {
         name
       }
-      description
-      forkCount
-      createdAt
-      updatedAt
-      url
       issues(
         first: 10
         after: $after
@@ -71,6 +65,12 @@ const GET_REPO_ISSUES = gql`
           endCursor
         }
       }
+      nameWithOwner
+      createdAt
+      updatedAt
+      description
+      forkCount
+      url
     }
   }
 `;

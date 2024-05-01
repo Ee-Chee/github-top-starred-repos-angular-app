@@ -20,7 +20,7 @@ export class PaginationComponent {
 
   pagesList = input.required<string[]>();
   nextPage = input.required<string | null>();
-  currentPage = input.required<string>();
+  currentPage = input<string | undefined>();
 
   next() {
     this.onNextPage.emit();

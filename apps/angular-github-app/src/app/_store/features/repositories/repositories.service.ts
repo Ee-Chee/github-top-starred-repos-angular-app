@@ -1,9 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import {
-  GET_PAGINATED_REPOSITORIES,
-  GET_REPO_ISSUES,
-} from '../../../graphql.queries';
-import { map, Observable, switchMap, take } from 'rxjs';
+import { GET_PAGINATED_REPOSITORIES } from '../../../graphql.queries';
+import { Observable, switchMap, take } from 'rxjs';
 import { Apollo } from 'apollo-angular';
 import { Store } from '@ngrx/store';
 import { selectAccessToken } from '../../root/base-info/base.selectors';
@@ -26,25 +23,6 @@ export class RepositoriesService {
     // search for repos which have at least one star
     // due to millions of entries (timeout querying) => inconsistent results
     this.store.dispatch(loadingPaginatedRepos());
-
-    return this.store.select(selectAccessToken).pipe(
-      take(1),
-      switchMap((token) => {
-        return this.apollo.query<Search<Repo[]>>({
-          query: GET_REPO_ISSUES,
-          fetchPolicy: 'no-cache',
-          context: {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-          variables: {
-            owner: 'freeCodeCamp',
-            name: 'freeCodeCamp',
-          },
-        });
-      })
-    );
 
     return this.store.select(selectAccessToken).pipe(
       take(1),

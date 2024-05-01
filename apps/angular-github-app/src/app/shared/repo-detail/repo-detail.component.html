@@ -1,0 +1,30 @@
+<section class="repo-container">
+  <div class="wrap-between">
+    <h1>{{ repoDetail().owner.login }}</h1>
+    <h1>{{ repoDetail().name }}</h1>
+  </div>
+
+  <div>
+    Primary language: {{ repoDetail().primaryLanguage?.name ?? 'None' }}
+  </div>
+
+  <div class="wrap-between">
+    <div>Stars: {{ repoDetail().stargazerCount }}</div>
+    <div>Forks: {{ repoDetail().forkCount }}</div>
+    <div>Issues: {{ repoDetail().issues.totalCount }}</div>
+  </div>
+
+  <p>{{ repoDetail().description }}</p>
+
+  <a
+    [href]="repoDetail().url"
+    target="_blank"
+    aria-label="check out this repo on Github"
+    >Check out this repo on Github</a
+  >
+
+  <div class="wrap-between">
+    <span>Created at: {{ repoDetail().createdAt | date : 'medium' }}</span>
+    <span>Updated at: {{ repoDetail().updatedAt | date : 'medium' }}</span>
+  </div>
+</section>

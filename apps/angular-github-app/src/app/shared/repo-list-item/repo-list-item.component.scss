@@ -2,17 +2,20 @@
 
 .repo-item-card {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  gap: 15px;
-  background-color: $aga-color-background;
   padding: 20px;
   border-radius: 20px;
-  width: 100%;
+  background-color: $aga-color-background;
+  color: $aga-color-text;
+  font-weight: 500;
+  gap: 15px;
+  text-decoration: none;
 
-  @include hover-effect();
+  @include hover-effect;
 
   .stars {
-    font-weight: bold;
     color: $aga-color-secondary;
+    font-weight: bold;
   }
 }

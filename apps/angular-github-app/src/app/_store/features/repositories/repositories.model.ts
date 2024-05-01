@@ -1,4 +1,5 @@
 import { ResponseErrorInterface } from '@angular-leanix/common';
+import { Issues } from '../repository/repository.models';
 
 export interface RepositoriesState {
   // starsQuery: StarsQueryEnum;
@@ -16,12 +17,10 @@ export interface Repo {
   owner: {
     login: string;
   };
-  issues: {
-    totalCount: number;
-  };
   primaryLanguage?: {
     name?: string | null;
   } | null;
+  issues: Issues;
 }
 
 export const firstReposEntryPage = 'firstReposEntryPage';

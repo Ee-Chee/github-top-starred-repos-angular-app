@@ -1,0 +1,48 @@
+@import '../../../scss/abstracts/variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+}
+
+app-header {
+  display: block;
+  margin-bottom: 50px;
+}
+
+.back {
+  margin-bottom: 20px;
+  color: $aga-color-text;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+mat-spinner {
+  align-self: center;
+}
+
+.navigate-home-btn {
+  width: 300px;
+  align-self: center;
+}
+
+.err-msg {
+  color: $aga-error;
+}
+
+app-refresh-button {
+  align-self: center;
+  margin-top: 50px;
+}
+
+app-pagination {
+  margin-top: 50px;
+}
+
+app-repo-issue-item {
+  & + app-repo-issue-item {
+    margin-top: 20px;
+  }
+}

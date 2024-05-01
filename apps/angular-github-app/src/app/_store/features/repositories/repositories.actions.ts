@@ -16,9 +16,9 @@ export const setPaginatedRepos = createAction(
   props<{ after: string | null; repos: Repo[]; mapKey: string }>()
 );
 
-export const requestPaginatedReposFailure = createAction(
-  '[Repositories/API] Request Paginated Repos Failure',
-  props<{ error: ResponseErrorInterface }>()
+export const setPaginatedReposError = createAction(
+  '[Repositories/API] Set Paginated Repos Error',
+  props<{ error: ResponseErrorInterface | null }>()
 );
 
 export const navigatePaginatedReposPage = createAction(

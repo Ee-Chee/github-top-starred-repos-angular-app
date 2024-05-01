@@ -1,0 +1,23 @@
+@import '../../../scss/abstracts/variables';
+
+.repo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 20px 30px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  background-color: $aga-color-background;
+  gap: 20px;
+}
+
+.wrap-between {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  hyphens: auto;
+  word-break: break-word;
+}

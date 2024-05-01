@@ -11,5 +11,5 @@ body {
 }
 
 .selected-page {
-  @include selected-page();
+  @include selected-page;
 }

@@ -16,16 +16,16 @@ mat-spinner {
 }
 
 .navigate-home-btn {
-  align-self: center;
   width: 300px;
+  align-self: center;
 }
 
 .repos-container {
   display: grid;
+  grid-gap: 30px;
   grid-template: auto/(
     calc(33.3333% - 20px) calc(33.3333% - 20px) calc(33.3333% - 20px)
   );
-  grid-gap: 30px;
 
   app-repo-list-item {
     display: flex;
@@ -36,15 +36,18 @@ mat-spinner {
   }
 
   @media (max-width: $small) {
-    grid-template: auto/100% !important;
     grid-gap: 20px 0;
+    grid-template: auto/100% !important;
   }
 }
 
-.refresh-btn {
+.err-msg {
+  color: $aga-error;
+}
+
+app-refresh-button {
   align-self: center;
   margin-top: 50px;
-  width: 300px;
 }
 
 app-pagination {

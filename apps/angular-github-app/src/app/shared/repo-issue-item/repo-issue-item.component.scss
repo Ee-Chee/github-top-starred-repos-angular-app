@@ -1,0 +1,28 @@
+@import '../../../scss/abstracts/mixins';
+
+.issue-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: $aga-color-background;
+  color: $aga-color-text;
+  gap: 20px;
+  text-decoration: none;
+
+  @include hover-effect;
+}
+
+.title {
+  flex: 60%;
+}
+
+.state {
+  flex: 10%;
+}
+
+.create {
+  flex: 20%;
+}

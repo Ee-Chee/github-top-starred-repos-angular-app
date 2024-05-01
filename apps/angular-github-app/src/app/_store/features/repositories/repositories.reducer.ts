@@ -32,7 +32,7 @@ const reducer = createReducer(
       };
     }
   ),
-  on(RepositoriesActions.requestPaginatedReposFailure, (state, { error }) => ({
+  on(RepositoriesActions.setPaginatedReposError, (state, { error }) => ({
     ...state,
     loading: false,
     error,

@@ -6,6 +6,11 @@ import {
   repositoriesReducer,
 } from '../_store/features/repositories/repositories.reducer';
 import { RepositoriesEffects } from '../_store/features/repositories/repositories.effects';
+import { RepositoryEffects } from '../_store/features/repository/repository.effects';
+import {
+  REPOSITORY_FEATURE_KEY,
+  repositoryReducer,
+} from '../_store/features/repository/repository.reducer';
 
 export const RepositoryRoutes: Route[] = [
   {
@@ -19,6 +24,10 @@ export const RepositoryRoutes: Route[] = [
   },
   {
     path: ':owner/:name',
+    providers: [
+      provideEffects(RepositoryEffects),
+      provideState(REPOSITORY_FEATURE_KEY, repositoryReducer),
+    ],
     loadComponent: () =>
       import('./repository/repository.component').then(
         (x) => x.RepositoryComponent

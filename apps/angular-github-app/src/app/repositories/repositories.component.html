@@ -11,7 +11,8 @@
   Token expired, navigate to home
 </button>
 } @else {
-<div>Request Failure: {{ err.message }}</div>
+<div class="err-msg">Request Failure: {{ err.message }}</div>
+<app-refresh-button (onRefresh)="refresh()"></app-refresh-button>
 } } @else if(loading$ | async) {
 <mat-spinner></mat-spinner>
 } @else { @if(!repos) {
@@ -23,14 +24,7 @@
   }
 </section>
 
-<button
-  class="refresh-btn"
-  mat-raised-button
-  color="accent"
-  aria-label="refresh repos of this page"
-  (click)="refresh()">
-  Refresh this page
-</button>
+<app-refresh-button (onRefresh)="refresh()"></app-refresh-button>
 } }
 
 <app-pagination

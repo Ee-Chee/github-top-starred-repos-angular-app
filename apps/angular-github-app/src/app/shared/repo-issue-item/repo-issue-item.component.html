@@ -1,0 +1,11 @@
+<a
+  class="issue-container"
+  aria-label="visit this issue on Github"
+  [href]="issue().url"
+  target="_blank">
+  <div class="title">{{ issue().title }}</div>
+  <div class="state">State: {{ issue().state }}</div>
+  <div class="create">
+    Created at: {{ issue().createdAt | date : 'medium' }}
+  </div>
+</a>
