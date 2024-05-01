@@ -73,7 +73,6 @@ export class RepositoryComponent implements OnInit, OnDestroy {
   lastAfter: string | null = null; // used in next page request
 
   ngOnInit(): void {
-    throw 'sdsada';
     this.store
       .select(selectRepositoryEntities)
       .pipe(takeUntilDestroyed(this.destroyRef))
