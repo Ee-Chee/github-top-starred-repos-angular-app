@@ -8,22 +8,71 @@ const AUTHENTICATE = gql`
   }
 `;
 
-// const ADD_TODO = gql`
-//   mutation addTodo($name: String!, $description: String!) {
-//     addTodo(name: $name, description: $description) {
-//       id
-//       name
-//       description
-//     }
-//   }
-// `
-//
-// const DELETE_TODO = gql`
-//   mutation deleteTodo($id: Int!) {
-//     deleteTodo(id: $id) {
-//       id
-//     }
-//   }
-//   `
+const GET_PAGINATED_REPOSITORIES = gql`
+  query ($query: String!, $after: String) {
+    search(query: $query, type: REPOSITORY, first: 10, after: $after) {
+      nodes {
+        ... on Repository {
+          id
+          name
+          description
+          stargazerCount
+          owner {
+            login
+          }
+          primaryLanguage {
+            name
+          }
+          issues(states: [OPEN]) {
+            totalCount
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+`;
 
-export { AUTHENTICATE };
+const GET_REPO_ISSUES = gql`
+  query ($owner: String!, $name: String!, $after: String) {
+    repository(owner: $owner, name: $name) {
+      id
+      name
+      owner {
+        login
+      }
+      stargazerCount
+      primaryLanguage {
+        name
+      }
+      description
+      forkCount
+      createdAt
+      updatedAt
+      url
+      issues(
+        first: 10
+        after: $after
+        orderBy: { field: CREATED_AT, direction: DESC }
+      ) {
+        totalCount
+        nodes {
+          id
+          title
+          url
+          state
+          createdAt
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+  }
+`;
+
+export { AUTHENTICATE, GET_PAGINATED_REPOSITORIES, GET_REPO_ISSUES };

@@ -10,7 +10,6 @@ export class BaseService {
   private apollo = inject(Apollo);
 
   validatePersonalToken(token: string): Observable<string> {
-    // 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
     return this.apollo
       .query({
         query: AUTHENTICATE,

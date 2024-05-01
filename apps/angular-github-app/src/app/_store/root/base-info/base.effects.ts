@@ -5,7 +5,7 @@ import * as BaseActions from './base.actions';
 import { BaseService } from './base.service';
 import { ApolloError } from '@apollo/client';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ResponseError } from '@angular-leanix/common';
+import { ResponseErrorInterface } from '@angular-leanix/common';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -25,7 +25,7 @@ export class BaseEffects {
             return BaseActions.validationSuccess({ token });
           }),
           catchError((errorResp: ApolloError) => {
-            let error: ResponseError;
+            let error: ResponseErrorInterface;
 
             if (errorResp.networkError instanceof HttpErrorResponse) {
               error = {

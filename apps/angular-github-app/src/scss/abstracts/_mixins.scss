@@ -1,0 +1,13 @@
+@import './variables';
+
+@mixin hover-effect() {
+  &:hover {
+    cursor: pointer;
+    @include selected-page();
+  }
+}
+
+@mixin selected-page() {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: $aga-color-text-light !important;
+}

@@ -7,7 +7,7 @@
 <form [formGroup]="form">
   <label class="home-text"> Your API Token: </label>
 
-  <mat-form-field>
+  <mat-form-field appearance="outline">
     <input matInput [formControl]="form.controls.token" />
     @if (form.controls.token.hasError('required')) {
     <mat-error>Required</mat-error>

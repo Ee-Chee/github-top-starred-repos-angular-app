@@ -15,7 +15,6 @@ import { graphqlProvider } from './graphql.provider';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideEffects(BaseEffects),
-    // provideState(fromBase.BASE_FEATURE_KEY, fromBase.baseReducer),
     provideStore({
       [fromBase.BASE_KEY]: fromBase.baseReducer,
     }),

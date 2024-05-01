@@ -1,0 +1,22 @@
+@import '../../../scss/abstracts/mixins';
+
+.pagination-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $aga-color-text;
+  border-radius: 5px;
+  background-color: $aga-color-background;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  @include hover-effect();
+}

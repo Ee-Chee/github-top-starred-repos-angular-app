@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 body {
   margin: 0;
@@ -8,4 +8,8 @@ body {
   font-weight: normal;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+.selected-page {
+  @include selected-page();
 }

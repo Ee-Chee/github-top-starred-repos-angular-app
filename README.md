@@ -7,6 +7,7 @@
 - Ngrx
 - Route guard
 - Graphql
+- Responsiveness
 
 ## Pre-settings
 - Configure stylelint in settings to enable auto-detection

@@ -34,7 +34,7 @@ export class HomeComponent {
   respErr$ = this.store.select(selectError);
 
   form: FormGroup<TokenValidationForm> = this.fB.nonNullable.group({
-    token: ['', Validators.required],
+    token: ['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', Validators.required],
   });
 
   onSubmit() {

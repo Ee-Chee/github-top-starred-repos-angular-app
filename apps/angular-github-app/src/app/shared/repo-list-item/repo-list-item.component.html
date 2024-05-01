@@ -1,0 +1,7 @@
+<div class="repo-item-card">
+  <div>Name: {{ repo().name }}</div>
+  <div>Owner: {{ repo().owner.login }}</div>
+  <div>Language: {{ repo().primaryLanguage?.name ?? '-' }}</div>
+  <div>Open Issues: {{ repo().issues.totalCount }}</div>
+  <div class="stars">Stars: {{ repo().stargazerCount }}</div>
+</div>

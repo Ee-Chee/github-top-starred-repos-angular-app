@@ -1,0 +1,52 @@
+@import '../../scss/abstracts/variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+}
+
+app-header {
+  display: block;
+  margin-bottom: 50px;
+}
+
+mat-spinner {
+  align-self: center;
+}
+
+.navigate-home-btn {
+  align-self: center;
+  width: 300px;
+}
+
+.repos-container {
+  display: grid;
+  grid-template: auto/(
+    calc(33.3333% - 20px) calc(33.3333% - 20px) calc(33.3333% - 20px)
+  );
+  grid-gap: 30px;
+
+  app-repo-list-item {
+    display: flex;
+  }
+
+  @media (max-width: $medium) {
+    grid-template: auto/(calc(50% - 15px) calc(50% - 15px)) !important;
+  }
+
+  @media (max-width: $small) {
+    grid-template: auto/100% !important;
+    grid-gap: 20px 0;
+  }
+}
+
+.refresh-btn {
+  align-self: center;
+  margin-top: 50px;
+  width: 300px;
+}
+
+app-pagination {
+  margin-top: 50px;
+}

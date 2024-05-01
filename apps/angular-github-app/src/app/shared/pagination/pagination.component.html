@@ -1,0 +1,12 @@
+<nav class="pagination-card">
+  @for (item of pagesList(); track item; let idx = $index, e = $even) {
+  <div
+    class="pagination-item"
+    [class.selected-page]="currentPage() === item"
+    (click)="navigate(item)">
+    {{ idx + 1 }}
+  </div>
+  } @if(nextPage()) {
+  <div class="pagination-item" (click)="next()">next</div>
+  }
+</nav>

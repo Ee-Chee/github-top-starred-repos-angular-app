@@ -1,1 +1,41 @@
-repos
+<app-header></app-header>
+
+@if(error$ | async; as err) { @if(err.statusCode === 401 || err.statusCode ===
+403) {
+<button
+  class="navigate-home-btn"
+  mat-raised-button
+  color="primary"
+  aria-label="invalid token, navigate to home"
+  routerLink="/home">
+  Token expired, navigate to home
+</button>
+} @else {
+<div>Request Failure: {{ err.message }}</div>
+} } @else if(loading$ | async) {
+<mat-spinner></mat-spinner>
+} @else { @if(!repos) {
+<div>This page is missing...</div>
+} @else {
+<section class="repos-container">
+  @for (item of repos; track item.id; let idx = $index, e = $even) {
+  <app-repo-list-item [repo]="item"></app-repo-list-item>
+  }
+</section>
+
+<button
+  class="refresh-btn"
+  mat-raised-button
+  color="accent"
+  aria-label="refresh repos of this page"
+  (click)="refresh()">
+  Refresh this page
+</button>
+} }
+
+<app-pagination
+  [nextPage]="lastAfter"
+  [pagesList]="pagesList"
+  [currentPage]="currentPage"
+  (onNextPage)="onNextPage()"
+  (onPageNavigation)="onPageNavigation($event)"></app-pagination>
