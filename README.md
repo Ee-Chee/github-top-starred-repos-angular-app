@@ -1,5 +1,5 @@
 # Main Objective
-This app allows user to use his/her own generated github api token to login and search for the top github repos with most starred and their corresponding details information using Angular 17 + Ngrx + Github Graphql API.
+This app allows user to use his/her own generated github api token to login and search for the top github repos with most stars and their corresponding detailed information using Angular 17 + Ngrx + Github Graphql API.
 
 # Features
 - Angular 17 latest features
