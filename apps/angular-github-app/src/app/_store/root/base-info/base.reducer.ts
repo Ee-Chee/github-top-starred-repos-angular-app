@@ -21,6 +21,10 @@ const reducer = createReducer(
     ...state,
     error,
     accessToken: null,
+  })),
+  on(BaseActions.resetStore, (state) => ({
+    ...state,
+    ...initialState,
   }))
 );
 

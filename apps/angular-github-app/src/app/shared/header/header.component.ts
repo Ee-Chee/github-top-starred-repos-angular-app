@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { Store } from '@ngrx/store';
+import { resetStore } from '../../_store/root/base-info/base.actions';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  private store = inject(Store);
+
+  resetStore() {
+    this.store.dispatch(resetStore());
+  }
+}

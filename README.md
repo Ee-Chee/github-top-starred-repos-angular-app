@@ -1,13 +1,24 @@
+# Main Objective
+This app allows user to use his/her own generated github api token to login and search for the top github repos with most starred and their corresponding details information using Angular 17 + Ngrx + Github Graphql API.
+
 # Features
+- Angular 17 latest features
 - Nx => Prettier, ESLint, Jest, Cypress
 - Stylelint
 - Husky and Lint-staged => run prettier code formatting before committing
 - Angular material
 - Global error handling (client and api)
-- Ngrx
 - Route guard
-- Graphql
+- Ngrx (Root Store and Feature Stores)
+- GitHub API Graphql (Login with token, each store resets to initial state upon logout)
 - Responsiveness
+- Accessibility
+- High performance app => onPush change detection strategy with signals and reactive Rxjs Observables, lazy loading, ng-for trackBy, etc...
+
+# Project Setup
+- clone the repo
+- npm install
+- run serve script
 
 ## Pre-settings
 - Configure stylelint in settings to enable auto-detection

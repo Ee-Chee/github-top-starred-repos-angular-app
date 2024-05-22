@@ -56,6 +56,7 @@ export class RepositoriesComponent implements OnDestroy {
   repos?: Repo[];
   pagesList!: string[];
   lastAfter: string | null = null; // used in next page request
+  initialized = false;
 
   constructor() {
     // https://netbasal.com/getting-to-know-the-takeuntildestroyed-operator-in-angular-d965b7263856
@@ -67,7 +68,7 @@ export class RepositoriesComponent implements OnDestroy {
         takeUntilDestroyed()
       )
       .subscribe(({ reposMap, currentPage, after }) => {
-        if (reposMap.size === 0) {
+        if (!this.initialized && reposMap.size === 0) {
           this.store.dispatch(requestPaginatedRepos({ after: currentPage }));
         } else {
           this.reposMap = reposMap;
@@ -76,6 +77,8 @@ export class RepositoriesComponent implements OnDestroy {
           this.pagesList = [...this.reposMap.keys()];
           this.lastAfter = after;
         }
+
+        this.initialized = true;
       });
 
     // never use wholeState here because it emits value whenever loading and error have new values

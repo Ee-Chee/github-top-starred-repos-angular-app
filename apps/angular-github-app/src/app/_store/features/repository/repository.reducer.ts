@@ -3,6 +3,7 @@ import { createReducer, on, Action } from '@ngrx/store';
 
 import * as RepositoryActions from './repository.actions';
 import { RepositoryEntity, RepositoryState } from './repository.models';
+import { resetStore } from '../../root/base-info/base.actions';
 
 export const REPOSITORY_FEATURE_KEY = 'repository';
 
@@ -49,7 +50,11 @@ const reducer = createReducer(
       },
       { ...state, loading: false }
     )
-  )
+  ),
+  on(resetStore, (state) => ({
+    ...state,
+    ...initialRepositoryState,
+  }))
 );
 
 export function repositoryReducer(

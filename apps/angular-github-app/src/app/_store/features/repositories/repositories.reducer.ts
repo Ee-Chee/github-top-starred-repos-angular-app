@@ -1,6 +1,7 @@
 import { firstReposEntryPage, RepositoriesState } from './repositories.model';
 import { Action, createReducer, on } from '@ngrx/store';
 import * as RepositoriesActions from '../../features/repositories/repositories.actions';
+import { resetStore } from '../../root/base-info/base.actions';
 
 export const REPOSITORIES_KEY = 'repositories';
 
@@ -40,6 +41,10 @@ const reducer = createReducer(
   on(RepositoriesActions.navigatePaginatedReposPage, (state, { page }) => ({
     ...state,
     currentPage: page,
+  })),
+  on(resetStore, (state) => ({
+    ...state,
+    ...initialState,
   }))
 );
 

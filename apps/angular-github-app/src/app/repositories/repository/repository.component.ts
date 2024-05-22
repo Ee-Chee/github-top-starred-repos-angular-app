@@ -71,13 +71,13 @@ export class RepositoryComponent implements OnInit, OnDestroy {
   issues?: Issue[];
   pagesList!: string[];
   lastAfter: string | null = null; // used in next page request
+  isInitialized = false;
 
   ngOnInit(): void {
     this.store
       .select(selectRepositoryEntities)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((reposDic) => {
-        console.log('here');
         const repositoryEntity = reposDic[`${this.owner}/${this.name}`];
         if (repositoryEntity) {
           this.repoDetail = repositoryEntity;
@@ -86,7 +86,7 @@ export class RepositoryComponent implements OnInit, OnDestroy {
           this.issues = this.issuesMap.get(this.currentPage);
           this.pagesList = [...this.issuesMap.keys()];
           this.lastAfter = repositoryEntity.after;
-        } else {
+        } else if (!this.isInitialized) {
           this.store.dispatch(
             requestRepo({
               owner: this.owner ?? '',
@@ -95,6 +95,8 @@ export class RepositoryComponent implements OnInit, OnDestroy {
             })
           );
         }
+
+        this.isInitialized = true;
       });
   }
 

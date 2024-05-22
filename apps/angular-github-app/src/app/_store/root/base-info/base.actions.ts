@@ -15,3 +15,5 @@ export const validationFailure = createAction(
   '[Base/API] Validation Failure',
   props<{ error: ResponseErrorInterface }>()
 );
+
+export const resetStore = createAction('[Base] Reset Store');
